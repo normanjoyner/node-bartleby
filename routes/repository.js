@@ -11,8 +11,8 @@ exports.attach = function(server){
     server.get("/repository", auth.basic, function(req, res){
         var module_info = req.query;
         module.getLatestVersion(module_info, function(err, version){
-            if(err || !version)
-                console.log("Unable to fetch the desired version of " + module_info.name);
+            if(err && err.code == "E404")
+                res.send(404, "Could not find package " + module_info.name + " in bartleby or npm repositories");
             else{
                 module_info.version = version;
                 var file = [process.env.HOME, ".npm", module_info.name, module_info.version, "package.tgz"].join("/");
@@ -67,7 +67,10 @@ var module = {
 
         npm.load({}, function(){
             npm.commands.show([module, "version"], function(err, response){
-                fn(err, _.last(_.keys(response)));
+                if(!err && response && _.keys(response).length > 0)
+                    fn(err, _.last(_.keys(response)));
+                else
+                    fn(err, null);
             });
         });
     }
