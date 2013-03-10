@@ -14,7 +14,7 @@ Norman Joyner - norman.joyner@gmail.com
 
 ###Installation
 ```
-git clone git@github.com:normanjoyner/node-bartleby-server.git
+git clone git@github.com:normanjoyner/node-bartleby.git
 ```
 
 ###Configuration
@@ -36,4 +36,4 @@ Create a json configuration file for the server similar to the following:
 node application
 
 ###Retrieving required dependencies
-Please follow the [node-bartleby-client](https://github.com/normanjoyner/node-bartleby-client) README to configure your application to talk to the Bartleby server
+Please follow the [node-bartleby client](https://github.com/normanjoyner/node-bartleby/blob/client) README to configure your application to talk to the Bartleby server
