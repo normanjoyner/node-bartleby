@@ -1,6 +1,5 @@
 // import dependencies
 var fs = require("fs");
-var path = require("path");
 var exec = require('child_process').exec;
 var _ = require("underscore");
 var npm = require("npm");
@@ -13,7 +12,7 @@ exports.attach = function(server){
         var module_info = req.query;
         var file = [process.env.HOME, ".npm", module_info.name, module_info.version, "package.tgz"].join("/");
 
-        path.exists(file, function(exists){
+        fs.exists(file, function(exists){
             if(!exists){
                 module.install(module_info, function(err, contents){
                     if(!err){
