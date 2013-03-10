@@ -48,7 +48,7 @@ var dependencies = {
             url: ["http:/", base_url, "repository"].join("/"),
             method: "GET",
             auth: {
-                username: confguration.server.username,
+                username: configuration.server.username,
                 password: configuration.server.password
             }
         }
