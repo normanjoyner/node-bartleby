@@ -1,19 +1,23 @@
-node-bartleby
+node-bartleby-client
 ====================
 
 ##About
 
 ###Description
-A simple, lightweight, and private npm repository.
+Node.js module to connect to [node-bartleby server] (https://github.com/normanjoyner/node-bartleby/tree/server)
 
-This project is in early development ... please check back in the future for added functionality.
 ###Author
 Norman Joyner - norman.joyner@gmail.com
 
 ##Getting Started
 
-###Server
-Please use the [node-bartleby server](https://github.com/normanjoyner/node-bartleby/blob/server) branch to setup your server
-
-###Client
-Please use the [node-bartleby client](https://github.com/normanjoyner/node-bartleby/blob/client) branch to setup your client
+###Installation
+```
+git clone git@github.com:normanjoyner/node-bartleby.git
+cd node-bartleby
+git checkout client
+chmod +x application.js
+sudo ln -s application.js /usr/local/bin/bartleby
+```
+###Configuration
+Coming soon ...
