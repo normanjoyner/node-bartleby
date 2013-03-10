@@ -10,41 +10,25 @@ exports.attach = function(server){
     // return the requested module from filesystem or get it from npm registry
     server.get("/repository", auth.basic, function(req, res){
         var module_info = req.query;
-
-        if(module_info.version){
-            var file = [process.env.HOME, ".npm", module_info.name, module_info.version, "package.tgz"].join("/");
-            module.install(file, module_info, function(err, contents){
-                if(!err){
-                    res.writeHead(200);
-                    res.write(contents, "binary");
-                    res.end();
-                }
-                else
-                    res.send(400);
-            });
-        }
-        else{
-            module.getLatestVersion(module_info.name, function(err, response){
-                var version = _.first(_.keys(response));
-                if(version){
-                    module_info.version = version;
-                    var file = [process.env.HOME, ".npm", module_info.name, module_info.version, "package.tgz"].join("/");
-                    module.install(file, module_info, function(err, contents){
-                        if(!err){
-                            res.writeHead(200);
-                            res.write(contents, "binary");
-                            res.end();
-                        }
-                        else
-                            res.send(400);
-                    });
-                }
-                else
-                    console.log("Error fetching the newest version of " + module_info.name);
-            });
-        }
-
+        module.getLatestVersion(module_info, function(err, version){
+            if(err || !version)
+                console.log("Unable to fetch the desired version of " + module_info.name);
+            else{
+                module_info.version = version;
+                var file = [process.env.HOME, ".npm", module_info.name, module_info.version, "package.tgz"].join("/");
+                module.install(file, module_info, function(err, contents){
+                    if(!err){
+                        res.writeHead(200);
+                        res.write(contents, "binary");
+                        res.end();
+                    }
+                    else
+                        res.send(400);
+                });
+            }
+        });
     });
+
 }
 
 var module = {
@@ -75,10 +59,15 @@ var module = {
         });
     },
 
-    getLatestVersion: function(module_name, fn){
+    getLatestVersion: function(module_info, fn){
+        if(module_info.version)
+            var module = [module_info.name, module_info.version].join("@");
+        else
+            var module = module_info.name;    
+
         npm.load({}, function(){
-            npm.commands.show([module_name, "version"], function(err, response){
-                fn(err, response);
+            npm.commands.show([module, "version"], function(err, response){
+                fn(err, _.last(_.keys(response)));
             });
         });
     }
