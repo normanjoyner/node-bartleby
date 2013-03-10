@@ -5,16 +5,26 @@ var http = require("http");
 var _ = require("underscore");
 var request = require("request");
 var npm = require("npm");
-var pkg = require([process.cwd(), "package"].join("/"));
 var configuration = require([process.env.HOME, ".bartleby", "config"].join("/"));
+
+try{
+    var pkg = require([process.cwd(), "package"].join("/"));
+}
+catch(e){
+    var pkg = null;
+}
 
 var operations = {
 
     install: function(modules){
         if(modules.length == 0){
-            modules = _.map(_.pairs(pkg.dependencies), function(module){
-                return module.join("@");
-            });
+            if(pkg){
+                modules = _.map(_.pairs(pkg.dependencies), function(module){
+                    return module.join("@");
+                });
+            }
+            else
+                console.log("Cannot find package.json. Are you sure it exists in this directory?");
         }
 
         _.each(modules, function(module){
@@ -61,6 +71,8 @@ var dependencies = {
         request(options, function(err, response){
             if(err && err.code == "ECONNREFUSED")
                 console.log("Cannot connect to the Bartleby server!");
+            else if(response.statusCode != 200)
+                console.log(response.body);
             else{
                 dependencies.install(filename, function(err){
                     if(err)
