@@ -1,0 +1,12 @@
+{
+  "name": "node-bartleby-server",
+  "engines": {
+      "node": "0.8.x",
+      "npm": ">=1.1.0"
+  },
+  "version": "0.0.1",
+  "dependencies": {
+    "npm": "1.2.x",
+    "underscore": "1.4.x"
+  }
+}
