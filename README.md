@@ -28,7 +28,7 @@ Create a json configuration file for the client similar to the following:
 {
     "server":{
         "port": 8467,
-        "host": "localhost"
+        "host": "localhost",
         "username": "admin",
         "password": "admin-password"
     }
