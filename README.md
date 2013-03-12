@@ -53,11 +53,11 @@ bartleby bump major                             # bumps the package.json major v
 ```
 
 Publish:
-```
+```bash
 bartleby publish                                # publishes the module to the bartleby server
 ```
 
 Clean:
-```
+```bash
 bartleby clean                                  # removes the node_modules directory
 ```
