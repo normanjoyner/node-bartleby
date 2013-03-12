@@ -25,6 +25,8 @@ var params = args.slice(1);
 
 if(operation == "install")
     operations.install(params);
+else if(operation == "bump")
+    operations.bump(params);
 else if(operation == "clean")
     operations.clean();
 else
