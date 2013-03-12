@@ -10,5 +10,8 @@
       "request": "2.14.0",
       "tar.gz": "0.1.1",
       "underscore": "1.4.4"
+  },
+  "bin": {
+    "bartleby": "./application.js"
   }
 }
