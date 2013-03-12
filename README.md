@@ -20,7 +20,8 @@ chmod +x application.js
 sudo ln -s application.js /usr/bin/bartleby
 ```
 ###Configuration
-Create a json configuration file for the client similar to the following:
+Bartleby client is configured to read from the config file located in .bartleby folder located in the users home directory.
+Simply create a json configuration file similar to the following:
 
 **~/.bartleby/config.json**
 ```json
@@ -35,4 +36,8 @@ Create a json configuration file for the client similar to the following:
 }
 ```
 
-Bartleby client is configured to read from the config file located in .bartleby folder located in the users home directory
+###Usage
+Install the most up-to-date version of a package
+```bash
+bartleby install bartleby-client
+```
