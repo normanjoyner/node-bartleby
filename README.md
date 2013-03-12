@@ -25,7 +25,6 @@ Simply create a json configuration file similar to the following:
 
 **~/.bartleby/config.json**
 ```json
-
 {
     "server":{
         "port": 8467,
@@ -40,4 +39,19 @@ Simply create a json configuration file similar to the following:
 Install the most up-to-date version of a package
 ```bash
 bartleby install bartleby-client
+```
+
+Install a specific version of a package
+```bash
+bartleby install bartleby-client@0.0.1
+```
+
+Install a wildcard version of a package
+```bash
+bartleby install bartleby-client@0.0.x
+```
+
+Install dependencies specified in package.json
+```bash
+bartleby install
 ```
