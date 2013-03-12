@@ -4,7 +4,7 @@ node-bartleby-client
 ##About
 
 ###Description
-Node.js module to connect to [node-bartleby server] (https://github.com/normanjoyner/node-bartleby/tree/server)
+A simple command line interface for interacting with [node-bartleby server] (https://github.com/normanjoyner/node-bartleby/tree/server)
 
 ###Author
 Norman Joyner - norman.joyner@gmail.com
