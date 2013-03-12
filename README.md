@@ -12,13 +12,10 @@ Norman Joyner - norman.joyner@gmail.com
 ##Getting Started
 
 ###Installation
+```bash
+npm install bartleby-client
 ```
-git clone git@github.com:normanjoyner/node-bartleby.git
-cd node-bartleby
-git checkout client
-chmod +x application.js
-sudo ln -s application.js /usr/bin/bartleby
-```
+
 ###Configuration
 Bartleby client is configured to read from the config file located in .bartleby folder located in the users home directory.
 Simply create a json configuration file similar to the following:
