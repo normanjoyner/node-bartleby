@@ -27,7 +27,9 @@ if(operation == "install")
     operations.install(params);
 else if(operation == "bump")
     operations.bump(params);
+else if(operation == "publish")
+    operations.publish();
 else if(operation == "clean")
     operations.clean();
 else
-    throw new Error("Please use either 'bartleby clean' or 'bartleby install'");
+    throw new Error("Please use 'bartleby install | bump | publish | clean");
