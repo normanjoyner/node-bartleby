@@ -13,7 +13,7 @@ Norman Joyner - norman.joyner@gmail.com
 
 ###Installation
 ```bash
-npm install bartleby-client
+sudo npm install -g bartleby-client
 ```
 
 ###Configuration
