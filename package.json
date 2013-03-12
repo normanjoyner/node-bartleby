@@ -6,7 +6,9 @@
   },
   "version": "0.0.1",
   "dependencies": {
+      "npm": "1.2.14",
       "request": "2.14.0",
+      "tar.gz": "0.1.1",
       "underscore": "1.4.4"
   }
 }
