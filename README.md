@@ -51,3 +51,13 @@ bartleby bump patch                             # bumps the package.json patch v
 bartleby bump minor                             # bumps the package.json minor version
 bartleby bump major                             # bumps the package.json major version
 ```
+
+Publish:
+```
+bartleby publish                                # publishes the module to the bartleby server
+```
+
+Clean:
+```
+bartleby clean                                  # removes the node_modules directory
+```
