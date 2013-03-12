@@ -38,20 +38,8 @@ Simply create a json configuration file similar to the following:
 ###Usage
 Install the most up-to-date version of a package
 ```bash
-bartleby install bartleby-client
-```
-
-Install a specific version of a package
-```bash
-bartleby install bartleby-client@0.0.1
-```
-
-Install a wildcard version of a package
-```bash
-bartleby install bartleby-client@0.0.x
-```
-
-Install dependencies specified in package.json
-```bash
-bartleby install
+bartleby install bartleby-client                # installs the most up-to-date version of a package
+bartleby install bartleby-client@0.0.1          # installs a specific version of a package
+bartleby install bartleby-client@0.0.x          # installs a wildcard version of a package
+bartleby install                                # installs dependencies specified in package.json
 ```
