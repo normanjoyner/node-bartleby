@@ -32,4 +32,4 @@ else if(operation == "publish")
 else if(operation == "clean")
     operations.clean();
 else
-    throw new Error("Please use 'bartleby install | bump | publish | clean");
+    throw new Error("Please use 'bartleby install | bump | publish | clean'");
