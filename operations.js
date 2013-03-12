@@ -36,6 +36,42 @@ var operations = {
         // stub for now
     },
 
+    bump: function(params){
+        var levels = {
+            major: "0",
+            minor: "1",
+            patch: "2"
+        }
+
+        if(params[0])
+            level = levels[params[0]];
+        else
+            level = levels.patch
+
+        if(level === undefined)
+            throw new Error(params[0] + " is not a recognized bump paramater. Please specify: 'patch', 'minor', or 'major'");
+
+        if(pkg){
+            if(pkg.version){
+                var version = pkg.version.split(".");
+                version[level] = parseInt(version[level]) + 1;
+                pkg.version = version.join(".");
+
+                fs.writeFile([process.cwd(), "package.json"].join("/"), JSON.stringify(pkg, null, 4), function(err){
+                  if(err)
+                    throw err;
+
+                  console.log("Successfully bumped " + pkg.name + " to version: " + pkg.version);
+                });
+            }
+            else
+                console.log("Cannot find key: 'version' in package.json. Are you sure it exists?");
+        }
+        else
+            console.log("Cannot find package.json. Are you sure it exists in this directory?");
+            
+    },
+
     clean: function(){
         exec("rm -rf node_modules", function(err){
             if(err)
