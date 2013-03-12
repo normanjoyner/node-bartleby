@@ -36,10 +36,18 @@ Simply create a json configuration file similar to the following:
 ```
 
 ###Usage
-Install the most up-to-date version of a package
+Install:
 ```bash
 bartleby install bartleby-client                # installs the most up-to-date version of a package
 bartleby install bartleby-client@0.0.1          # installs a specific version of a package
 bartleby install bartleby-client@0.0.x          # installs a wildcard version of a package
 bartleby install                                # installs dependencies specified in package.json
+```
+
+Bump:
+```bash
+bartleby bump                                   # bumps the package.json patch version
+bartleby bump patch                             # bumps the package.json patch version
+bartleby bump minor                             # bumps the package.json minor version
+bartleby bump major                             # bumps the package.json major version
 ```
