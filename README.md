@@ -13,7 +13,7 @@ Norman Joyner - norman.joyner@gmail.com
 ##Getting Started
 
 ###Server
-Please use the [node-bartleby server](https://github.com/normanjoyner/node-bartleby/blob/server) branch to setup your server
+Please use the [node-bartleby server](https://github.com/normanjoyner/node-bartleby/blob/server) branch to set up your server
 
 ###Client
-Please use the [node-bartleby client](https://github.com/normanjoyner/node-bartleby/blob/client) branch to setup your client
+Please use the [node-bartleby client](https://github.com/normanjoyner/node-bartleby/blob/client) branch to set up your client
