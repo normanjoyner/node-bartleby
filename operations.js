@@ -5,6 +5,7 @@ var http = require("http");
 var _ = require("underscore");
 var request = require("request");
 var npm = require("npm");
+var targz = require('tar.gz');
 var configuration = require([process.env.HOME, ".bartleby", "config"].join("/"));
 
 try{
@@ -33,7 +34,22 @@ var operations = {
     },
 
     publish: function(){
-        // stub for now
+        if(pkg){
+            if(pkg.name){
+                var filename = [pkg.name, "tgz"].join(".");
+                var tar = new targz();
+                tar.compress(process.cwd(), [process.env.HOME, ".bartleby", "tmp", filename].join("/"), function(err){
+                    if(err)
+                        console.log(err);
+
+                    console.log('The compression has ended!');
+                });
+            }
+            else
+                console.log("Please provide a valid name in your package.json");
+        }
+        else
+            console.log("Cannot find package.json. Are you sure it exists in this directory?");
     },
 
     bump: function(params){
